@@ -12,8 +12,15 @@ const toDosReducer = ( state = [], action ) => {
             const newToDoList = [...state];
             newToDoList.push( newTask );
             return newToDoList;
+        case 'REMOVE_TO_DO':
+            const updatedToDoList = state.filter( 
+                toDo => toDo.id !== action.payload
+             );
+            return updatedToDoList; 
+
         default:
-            return state;    
+            return state;
+            
     }
 }
 export default toDosReducer;

@@ -17,4 +17,4 @@ const removeToDo = id => {
         payload: id 
     };
 }
-export { addNewToDo };
+export { addNewToDo, removeToDo };
