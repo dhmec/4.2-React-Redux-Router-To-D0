@@ -10,4 +10,11 @@ const addNewToDo = toDoContent => {
         payload: toDoContent
     };
 }
+
+const removeToDo = id => {
+    return {
+        type: 'REMOVE_TO_DO',
+        payload: id 
+    };
+}
 export { addNewToDo };
