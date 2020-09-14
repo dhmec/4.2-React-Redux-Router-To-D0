@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from 'react-redux'; 
+import { addNewToDo } from "../actions/todos"
 
 
 
@@ -11,6 +12,7 @@ const ToDos = props =>
     //Add a submit function
     const submitToDo = event => {
         event.preventDefault();
+        props.dispatch( addNewToDo( newTask ) );
 
     }
 
@@ -25,8 +27,7 @@ const ToDos = props =>
                     value = {newTask} 
                     onChange={ event => { setNewTask( event.target.value ); } } />
                 <input type="submit" value="Add New To-Do" />
-            </form>
-            <ul></ul>
+            </form>            
         </>
     );
 }
