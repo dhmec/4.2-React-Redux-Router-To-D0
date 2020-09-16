@@ -7,7 +7,8 @@ import { addNewToDo } from './actions/todos';
 import { Provider } from 'react-redux';
 import ToDos from './components/ToDos';
 import ToDoList from './components/ToDoList';
-
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Nav from './components/Nav';
 
 const store = createStore( 
   toDosReducer,
@@ -23,8 +24,11 @@ store.dispatch( addNewToDo("Review Redux") );
 ReactDOM.render(
   <Provider store={store}>
     <h1>React-Redux To-Do List </h1>
-    <ToDos />
-    <ToDoList />
+    <Router>
+      <Nav />
+      <Route path="/" component={ToDoList} exact/>
+      <Route path="/form" component={ToDos} />
+    </Router>    
   </Provider>,
   document.getElementById('root')
 );
